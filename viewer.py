@@ -23,3 +23,14 @@ class Viewer:
             cv2.imshow("Camera", frame)
             if cv2.waitKey(1) == ord("q"):
                 break
+
+
+class BrightnessViewer(Viewer):
+    def __init__(self):
+        super().__init__(256, 256 * 2 - 1)
+
+    def get_trackbar_pos(self):
+        return super().get_trackbar_pos() - 256
+
+    def process_frame(self, frame, trackbar_pos):
+        return cv2.add(frame, trackbar_pos)

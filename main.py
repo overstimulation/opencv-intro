@@ -1,7 +1,7 @@
 import cv2
 import PySide6
 
-from viewer import Viewer
+from viewer import *
 
 
 def ex1():
@@ -35,5 +35,5 @@ def ex3():
 
 
 if __name__ == "__main__":
-    viewer = Viewer(0, 1)
+    viewer = BrightnessViewer()
     viewer.run()
