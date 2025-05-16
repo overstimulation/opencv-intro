@@ -19,5 +19,18 @@ def ex2():
             break
 
 
+def ex3():
+    cv2.namedWindow("Camera")
+    capture = cv2.VideoCapture(0)
+    cv2.createTrackbar("Brightness", "Camera", 256, 256 * 2 - 1, lambda x: None)
+    while True:
+        ret, frame = capture.read()
+        if not ret:
+            break
+        cv2.imshow("Camera", cv2.add(frame, cv2.getTrackbarPos("Brightness", "Camera") - 256))
+        if cv2.waitKey(1) == ord("q"):
+            break
+
+
 if __name__ == "__main__":
-    ex2()
+    ex3()
