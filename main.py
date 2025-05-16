@@ -1,6 +1,8 @@
 import cv2
 import PySide6
 
+from viewer import Viewer
+
 
 def ex1():
     img = cv2.imread("yoko_taro.jpg")
@@ -33,4 +35,5 @@ def ex3():
 
 
 if __name__ == "__main__":
-    ex3()
+    viewer = Viewer(0, 1)
+    viewer.run()
