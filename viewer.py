@@ -49,3 +49,17 @@ class BlurViewer(Viewer):
     def process_frame(self, frame, trackbar_pos):
         return cv2.GaussianBlur(frame, (trackbar_pos, trackbar_pos), 0)
         # return cv2.filter2D(frame,-1,self.kernel)
+
+
+class MedianViewer(Viewer):
+    def __init__(self):
+        super().__init__(1, 100)
+
+    def get_trackbar_pos(self):
+        val = super().get_trackbar_pos() * 2 + 1
+        if val > 15:
+            val = 15
+        return val
+
+    def process_frame(self, frame, trackbar_pos):
+        return cv2.medianBlur(frame, trackbar_pos)

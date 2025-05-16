@@ -35,5 +35,5 @@ def ex3():
 
 
 if __name__ == "__main__":
-    viewer = BlurViewer()
+    viewer = MedianViewer()
     viewer.run()
